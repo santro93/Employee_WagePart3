@@ -16,39 +16,38 @@ public class EmployeeWage {
 			 int empHrs = 0, empWage = 0, totalEmpWage = 0, totalEmpHrs = 0, totalWorkingDays = 1 ;
 
 			  //check total emp hour not more than 100 and total days not more than 20
-			    while (totalEmpHrs <= maxHrsInMonth && totalWorkingDays <= workingDayPerMonth){
-			    
-			        double empCheck = Math.floor(Math.random()*3);
-			        System.out.println("Random value for emp Attendence check is: "+empCheck);
+		while (totalEmpHrs <= maxHrsInMonth && totalWorkingDays <= workingDayPerMonth){
+			   double empCheck = Math.floor(Math.random()*3);
+			   System.out.println("Random value for emp Attendence check is: "+empCheck);
 			
 			        switch ((int)empCheck){
-					        case FULL_TIME:
-					        	System.out.println("Employee is present Full Time");
-					        	empHrs = 8;
-					       				break;
+					  case FULL_TIME:
+					       System.out.println("Employee is present Full Time");
+					       empHrs = 8;
+					       break;
 					       
-					        case PART_TIME:
-					       		System.out.println("Employee is present Part Time");
-					       		empHrs = 4;
-					       				break;
+					  case PART_TIME:
+					       System.out.println("Employee is present Part Time");
+					       empHrs = 4;
+					       break;
 					  
-					        default:
-					        	System.out.println("Employee is Absent");
-					        	empHrs = 0;	
-			        	}
+					  default:
+					       System.out.println("Employee is Absent");
+					       empHrs = 0;	
+			        }
 			        
-			    //calculate total emp hours
-	                    totalEmpHrs += empHrs;
-			    System.out.println("Day : "+ totalWorkingDays +" Emp Hrs : "+empHrs);
+			   //calculate total emp hours
+	                   totalEmpHrs += empHrs;
+			   System.out.println("Day : "+ totalWorkingDays +" Emp Hrs : "+empHrs);
 		       
 		        
-		      //day increment by 1 every iteration
-		        totalWorkingDays++ ;
+		      	   //day increment by 1 every iteration
+		           totalWorkingDays++ ;
 			}
 			 // calculate total emp wage
 			  totalEmpWage = totalEmpHrs * empWagePerHr;
-		      System.out.println("Total Hours workdone by Employee in month is: "+company +" " + totalEmpHrs); 
-		      System.out.println("Employee Daily Wage is: " +company +" " +totalEmpWage );
+		          System.out.println("Total Hours workdone by Employee in month is: "+company +" " + totalEmpHrs); 
+		          System.out.println("Employee Daily Wage is: " +company +" " +totalEmpWage );
 		}
 	
 	public static void main(String[] args) {
