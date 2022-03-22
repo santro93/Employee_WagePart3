@@ -6,10 +6,6 @@ public class EmployeeWage {
 	public static final int PART_TIME = 2;
 	public static final int EMP_WAGE_PER_HR = 20;
 	
-	
-	
-	
-	
 	//method: employee wage calculation	
 	public static void empWageComputation(String company, int empWagePerHr, int workingDayPerMonth, int maxHrsInMonth){
 			//variables initialization
