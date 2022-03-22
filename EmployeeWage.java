@@ -11,7 +11,7 @@ public class EmployeeWage {
 	
 	
 	//method: employee wage calculation	
-		public static void empWageComputation(String company, int empWagePerHr, int workingDayPerMonth, int maxHrsInMonth){
+	public static void empWageComputation(String company, int empWagePerHr, int workingDayPerMonth, int maxHrsInMonth){
 			//variables initialization
 			 int empHrs = 0, empWage = 0, totalEmpWage = 0, totalEmpHrs = 0, totalWorkingDays = 1 ;
 
@@ -38,7 +38,7 @@ public class EmployeeWage {
 			        	}
 			        
 			    //calculate total emp hours
-	            totalEmpHrs += empHrs;
+	                    totalEmpHrs += empHrs;
 			    System.out.println("Day : "+ totalWorkingDays +" Emp Hrs : "+empHrs);
 		       
 		        
