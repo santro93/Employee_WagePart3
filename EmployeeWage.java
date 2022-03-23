@@ -22,29 +22,25 @@ public class EmployeeWage {
 					        	System.out.println("Employee is present Full Time");
 					        	empHrs = 8;
 					       				break;
-					       
 					        case PART_TIME:
 					       		System.out.println("Employee is present Part Time");
 					       		empHrs = 4;
 					       				break;
-					  
 					        default:
 					        	System.out.println("Employee is Absent");
 					        	empHrs = 0;	
 			        	}
 			        
 			    //calculate total emp hours
-	            totalEmpHrs += empHrs;
+	                    totalEmpHrs += empHrs;
 			    System.out.println("Day : "+ totalWorkingDays +" Emp Hrs : "+empHrs);
-		       
-		        
-		      //day increment by 1 every iteration
-		        totalWorkingDays++ ;
+		    	   //day increment by 1 every iteration
+		       	    totalWorkingDays++ ;
 			}
 			 // calculate total emp wage
 			  totalEmpWage = totalEmpHrs * empWagePerHr;
-		      System.out.println("Total Hours workdone by Employee in month is: "+company +" " + totalEmpHrs); 
-		      System.out.println("Employee Daily Wage is: " +company +" " +totalEmpWage );
+		      	  System.out.println("Total Hours workdone by Employee in month is: "+company +" " + totalEmpHrs); 
+		          System.out.println("Employee Daily Wage is: " +company +" " +totalEmpWage );
 		}
 	
 	public static void main(String[] args) {
