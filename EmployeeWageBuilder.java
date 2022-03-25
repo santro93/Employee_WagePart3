@@ -21,32 +21,32 @@ public class EmployeeWageBuilder implements ComputeEmpWage {
 	public void empWageCalculation() {
 		for(int i = 0; i < companyEmpWageArrayList.size(); i++) {
 			CompanyEmpWage companyEmpWage = companyEmpWageArrayList.get(i);
-			int totalEmpWage = this.empWageCalculation(companyEmpWage);
+			int totalEmpWage = this.empTotalWage(companyEmpWage);
 			System.out.println("Total Employee Wage for Company " + companyEmpWage.company + " is: " + totalEmpWage);
 			System.out.println("---------------------------------------------------------");
 		}
 	}
 	
-	public int empWageCalculation(CompanyEmpWage companyEmpWage) {
+	public int empTotalWage(CompanyEmpWage companyEmpWage) {
 		int totalEmpHour = 0;
 		int empHour = 0;
 		int totalWorkingDays = 0;
 		
 		while(totalEmpHour <= companyEmpWage.maxHrsPerMonth && totalWorkingDays <= companyEmpWage.numOfWorkingDays) {
 			totalWorkingDays++;
-			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+			int empCheck = (int) Math.floor(Math.random()*3);
 			switch(empCheck) {
-				case IS_FULL_TIME:
-					empHour = 8;
-					break;
-					
-				case IS_PART_TIME:
-					empHour = 4;
-					break;
-					
-				default:
-					empHour = 0;		
-				}
+			case IS_FULL_TIME:
+				empHour = 8;
+				break;
+				
+			case IS_PART_TIME:
+				empHour = 4;
+				break;
+				
+			default:
+				empHour = 0;		
+			}
 			totalEmpHour += empHour;
 			int dailyWage = empHour * companyEmpWage.empRatePerHr;
 			System.out.println("Daily Employee Wage for Company " + companyEmpWage.company + " is: "+ dailyWage);
@@ -63,5 +63,4 @@ public class EmployeeWageBuilder implements ComputeEmpWage {
 		companyEmpWageArray.addCompanyEmpWage("Reliance Mart", 22, 30, 300);
 		companyEmpWageArray.empWageCalculation();
 	}
-}
-
+}	
