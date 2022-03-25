@@ -2,13 +2,13 @@ package com.bridgelabz.EmployeeWage_UC7;
 
 import java.util.ArrayList;
 
-public class EmployeeWage implements ComputeEmpWage {
+public class EmployeeWageBuilder implements ComputeEmpWage {
 	public static final int IS_FULL_TIME = 1; 
 	public static final int IS_PART_TIME = 2; 
 	
 	private ArrayList<CompanyEmpWage> companyEmpWageArrayList;
 	
-	public EmployeeWage() {
+	public EmployeeWageBuilder() {
 		super();
 		companyEmpWageArrayList = new ArrayList<CompanyEmpWage>();
 	}
@@ -18,15 +18,16 @@ public class EmployeeWage implements ComputeEmpWage {
 		companyEmpWageArrayList.add(companyWage);
 	}
 	
-	public void empWageCalc() {
+	public void empWageCalculation() {
 		for(int i = 0; i < companyEmpWageArrayList.size(); i++) {
 			CompanyEmpWage companyEmpWage = companyEmpWageArrayList.get(i);
-			int totalEmpWage = this.empWageCalc(companyEmpWage);
+			int totalEmpWage = this.empWageCalculation(companyEmpWage);
 			System.out.println("Total Employee Wage for Company " + companyEmpWage.company + " is: " + totalEmpWage);
+			System.out.println("---------------------------------------------------------");
 		}
 	}
 	
-	public int empWageCalc(CompanyEmpWage companyEmpWage) {
+	public int empWageCalculation(CompanyEmpWage companyEmpWage) {
 		int totalEmpHour = 0;
 		int empHour = 0;
 		int totalWorkingDays = 0;
@@ -35,18 +36,20 @@ public class EmployeeWage implements ComputeEmpWage {
 			totalWorkingDays++;
 			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 			switch(empCheck) {
-			case IS_FULL_TIME:
-				empHour = 8;
-				break;
-				
-			case IS_PART_TIME:
-				empHour = 4;
-				break;
-				
-			default:
-				empHour = 0;		
-			}
+				case IS_FULL_TIME:
+					empHour = 8;
+					break;
+					
+				case IS_PART_TIME:
+					empHour = 4;
+					break;
+					
+				default:
+					empHour = 0;		
+				}
 			totalEmpHour += empHour;
+			int dailyWage = empHour * companyEmpWage.empRatePerHr;
+			System.out.println("Daily Employee Wage for Company " + companyEmpWage.company + " is: "+ dailyWage);
 		}
 		return companyEmpWage.totalEmpWage = totalEmpHour * companyEmpWage.empRatePerHr;	
 	}
@@ -54,10 +57,11 @@ public class EmployeeWage implements ComputeEmpWage {
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employee Wage Computation");
 		
-		EmployeeWage companyEmpWageArray = new EmployeeWage();
+		EmployeeWageBuilder companyEmpWageArray = new EmployeeWageBuilder();
 		companyEmpWageArray.addCompanyEmpWage("D-Mart", 24, 30, 150);
-		companyEmpWageArray.addCompanyEmpWage("Big Basket", 20, 30, 200);
+		companyEmpWageArray.addCompanyEmpWage("Vijay Sales", 22, 30, 200);
 		companyEmpWageArray.addCompanyEmpWage("Reliance Mart", 22, 30, 300);
-		companyEmpWageArray.empWageCalc();
+		companyEmpWageArray.empWageCalculation();
 	}
 }
+
